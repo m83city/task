@@ -1,25 +1,54 @@
-import logo from './logo.svg';
+
+import { Button } from 'primereact/button';
 import './App.css';
+import Li from './components/Li'
+import './component_style/Ul.css'
+import { useState } from 'react';
+import Popup from './components/Popup'
+
 
 function App() {
+ let tableId = 0 ;
+    const [tableRows, setTableRows] = useState([
+      {
+        id: Date.now(),
+        firstName: "lorem",
+        secondName: "lorem",
+        lastName: "lorem"}
+  ]);
+
+  const togglePopup = () =>{
+    alert("ff")
+  }
+  
+  
+  
+    const addNewRow = () =>{
+      const newRow = {
+        id:Date.now(),
+        firstName: "",
+        secondName: "",
+        lastName: ""
+      } 
+      setTableRows([...tableRows, newRow])
+    }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input value = "Popup" type = "button" onClick = {togglePopup}/>
+      <Button onClick = {addNewRow}>Add new stroke</Button>
+      <ul className = 'ul__box'>
+        {tableRows.map((row,id) =>{
+          if(row)
+          return(<Li row={row} key={id}  />  )
+        }
+        )}
+         
+      </ul>
     </div>
   );
 }
 
+
 export default App;
+
