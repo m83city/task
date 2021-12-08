@@ -31,6 +31,9 @@ function App() { //start Array
     }
 
     
+    function deleteRow (id){ //delete Row
+      setTableRows(tableRows.filter((rowTable) => rowTable.id !== id))
+    }
 
   return (
     <div className="App">
@@ -39,7 +42,7 @@ function App() { //start Array
       <ul className = 'ul__box'>
         {tableRows.map((row,id) =>{
           if(row)
-          return(<Li row={row} key={id} />  )
+          return(<Li row={row} key={id}  onChange = {deleteRow}/>  )
         }
         )}
          

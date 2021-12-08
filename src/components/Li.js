@@ -4,18 +4,12 @@ import {Button} from '../../node_modules/primereact/button'
 import '../component_style/Li.css'
 import PropTypes from 'prop-types'
 
-function Li(props, onChange ){
+function Li(props, onChange){
     
-    const showProps = () =>{
-        console.log(props.row.id)
-    }
-    ///////////////////onDelete(props.row.id)
-    
-    ///////////////////
     return(
         <li className = "item_li">
             <Inputs valTable = {props}/>
-            
+            <input type = "button" onClick = {() => props.onChange(props.row.id)} value = "Delete" />
         </li>
         
     )
