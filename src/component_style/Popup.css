@@ -1,0 +1,39 @@
+.close-button{
+cursor: pointer;
+font-size: 30px;
+font-weight: 800;
+}
+.popup__window.active{
+    
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 20%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(48, 48, 48, 0.5);
+    
+}
+.popup__content{
+    margin: 5px;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 5px;
+    background-color: rgb(207, 207, 207);
+
+}
+.popup__window.closed{
+    visibility: hidden;
+    display: none;
+    width: 0px;
+    height: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    
+}

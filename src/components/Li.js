@@ -1,10 +1,8 @@
 import React from 'react';
 import Inputs from './Inputs';
-import {Button} from '../../node_modules/primereact/button'
 import '../component_style/Li.css'
-import PropTypes from 'prop-types'
 
-function Li(props, onChange){
+function Li(props){
     
     return(
         <li className = "item_li">

@@ -1,15 +1,35 @@
 import React from "react";
-const Popup = () =>{
+import '../component_style/Popup.css'
+function Popup(props){
 
+  
+  const state = props.active
+  
+
+  const  disablePopup = () =>{
+    
+  }
+
+
+  let claass = 'popup__window';
+  if (state) {
+    claass+= ' active';
+  }
+  else{
+    claass += ' closed'
+  }
     return(
-        <div className = "popup">
-            <div className = "popup__window">
+        
+            <div className={claass}>
                 <div className = "popup__content">
-                    <p>lorem lorem lorem oerm plroer
-                    </p>
-                    <span> close popup</span>
+                    <input></input>
+                    <input></input>
+                    <input></input>
+                    <button >Submit</button>
                 </div>
+                <input type = "button" onClick = {() => props.changes(false)} value = "&times;" />
             </div>
-        </div>
+        
     )
 }
+export default Popup

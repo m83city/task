@@ -4,7 +4,8 @@ import './App.css';
 import Li from './components/Li'
 import './component_style/Ul.css'
 import { useState } from 'react';
-import Popup from './components/Popup'
+import Popup from '../src/components/Popup'
+import { act } from 'react-dom/cjs/react-dom-test-utils.production.min';
 
 
 function App() { //start Array
@@ -35,11 +36,34 @@ function App() { //start Array
       setTableRows(tableRows.filter((rowTable) => rowTable.id !== id))
     }
 
+    function testing (value){
+      /* const getValue = document.getElementById("title").value
+     
+      document.getElementById("spanId").value = getValue; */
+      console.log("getValue")
+    }
+    /* let activePopup = true; */
+    const [activePopup, setActivePopup] = useState(false);
+    
+    function changeState(disable){
+      setActivePopup(false)
+    }
+    function popup(){
+      setActivePopup(true)
+    }
+    
+      ч
+
+  
+
   return (
     <div className="App">
-      <input value = "Popup" type = "button" onClick = {togglePopup}/>
-      <Button onClick ={ addNewRow}  >Add new stroke</Button>
+      
+      <Popup active = {activePopup} changes = {changeState}/>
+      <Button onClick = {popup}>popup</Button>
+      <Button onClick ={addNewRow}>Add new stroke</Button>
       <ul className = 'ul__box'>
+
         {tableRows.map((row,id) =>{
           if(row)
           return(<Li row={row} key={id}  onChange = {deleteRow}/>  )
