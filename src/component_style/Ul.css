@@ -1,3 +1,9 @@
 .ul__box{
 list-style-type: none;
 }
+.boxLable{
+    margin-left: 100px;
+    max-width: 40%;
+    display: flex;
+    justify-content: space-between;
+}

@@ -16,52 +16,47 @@ function App() { //start Array
         secondName: "lorem",
         lastName: "lorem"},
   ]);
-
-  const togglePopup = () =>{
-    alert("ff")
-  }
-  
-    const addNewRow = () =>{ // add new Row
-      const newRow = {
-        id:Date.now(),
-        firstName: "fff",
-        secondName: "fff",
-        lastName: "fff"
-      } 
-      setTableRows([...tableRows, newRow])
-    }
-
     
     function deleteRow (id){ //delete Row
       setTableRows(tableRows.filter((rowTable) => rowTable.id !== id))
     }
 
-    function testing (value){
-      /* const getValue = document.getElementById("title").value
-     
-      document.getElementById("spanId").value = getValue; */
-      console.log("getValue")
-    }
-    /* let activePopup = true; */
-    const [activePopup, setActivePopup] = useState(false);
+  
     
+    const [activePopup, setActivePopup] = useState(false);
     function changeState(disable){
       setActivePopup(false)
     }
     function popup(){
       setActivePopup(true)
     }
-    
-      ч
 
-  
+
+    function addTodo (first, second, last){
+      
+      const newRows = {
+        id:Date.now(),
+        firstName: first,
+        secondName: second,
+        lastName: last
+      }
+      console.log(newRows)
+      setTableRows([...tableRows, newRows])
+    }
+   
 
   return (
     <div className="App">
       
-      <Popup active = {activePopup} changes = {changeState}/>
-      <Button onClick = {popup}>popup</Button>
-      <Button onClick ={addNewRow}>Add new stroke</Button>
+      
+      <Popup active = {activePopup} changes = {changeState} onCreate={addTodo}/>
+      <Button onClick ={popup}>Add new stroke</Button>
+      <div className='boxLable'>
+        <label className='itemLable' > id </label>
+        <label className='itemLable' >firstName</label>
+        <label className='itemLable' >secondName</label>
+        <label className='itemLable' >lastName</label>
+      </div>
       <ul className = 'ul__box'>
 
         {tableRows.map((row,id) =>{
